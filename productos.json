@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Blue Lock Vol.1",
+    "type": "product",
+    "list_price": 170.0,
+    "default_code": "CRU-0007",
+    "barcode": "9781421520545",
+    "categ_id": 2
+  },
+  {
+    "name": "Vinland Saga Deluxe Edition Vol.1",
+    "type": "product",
+    "list_price": 499.5,
+    "default_code": "CRU-0008",
+    "barcode": "9781632368174",
+    "categ_id": 2
+  },
+  {
+    "name": "Jujutsu Kaisen Vol.2",
+    "type": "product",
+    "list_price": 150.0,
+    "default_code": "CRU-0009",
+    "barcode": "9781974710049",
+    "categ_id": 2
+  },
+  {
+    "name": "Chainsaw Man Vol.1",
+    "type": "product",
+    "list_price": 160.0,
+    "default_code": "CRU-0010",
+    "barcode": "9781974709937",
+    "categ_id": 2
+  },
+  {
+    "name": "Attack on Titan Vol.1",
+    "type": "product",
+    "list_price": 165.0,
+    "default_code": "CRU-0011",
+    "barcode": "9781612620244",
+    "categ_id": 2
+  },
+  {
+    "name": "Demon Slayer Vol.1",
+    "type": "product",
+    "list_price": 155.0,
+    "default_code": "CRU-0012",
+    "barcode": "9781974700521",
+    "categ_id": 2
+  },
+  {
+    "name": "Tokyo Ghoul Vol.1",
+    "type": "product",
+    "list_price": 180.0,
+    "default_code": "CRU-0013",
+    "barcode": "9781421580365",
+    "categ_id": 2
+  },
+  {
+    "name": "Naruto Vol.1",
+    "type": "product",
+    "list_price": 140.0,
+    "default_code": "CRU-0014",
+    "barcode": "9781569319000",
+    "categ_id": 2
+  },
+  {
+    "name": "One Piece Vol.1",
+    "type": "product",
+    "list_price": 145.0,
+    "default_code": "CRU-0015",
+    "barcode": "9781569319017",
+    "categ_id": 2
+  },
+  {
+    "name": "My Hero Academia Vol.1",
+    "type": "product",
+    "list_price": 160.0,
+    "default_code": "CRU-0016",
+    "barcode": "9781421582697",
+    "categ_id": 2
+  },
+  {
+    "name": "Death Note Vol.1",
+    "type": "product",
+    "list_price": 170.0,
+    "default_code": "CRU-0017",
+    "barcode": "9781421501681",
+    "categ_id": 2
+  },
+  {
+    "name": "Kagurabachi Vol.1",
+    "type": "product",
+    "list_price": 150.0,
+    "default_code": "CRU-0018",
+    "barcode": "9781591164418",
+    "categ_id": 2
+  },
+  {
+    "name": "Dragon Ball Vol.1",
+    "type": "product",
+    "list_price": 155.0,
+    "default_code": "CRU-0019",
+    "barcode": "9781569319208",
+    "categ_id": 2
+  },
+  {
+    "name": "Spy x Family Vol.1",
+    "type": "product",
+    "list_price": 165.0,
+    "default_code": "CRU-0020",
+    "barcode": "9781974715464",
+    "categ_id": 2
+  },
+  {
+    "name": "Berserk Deluxe Vol.1",
+    "type": "product",
+    "list_price": 550.0,
+    "default_code": "CRU-0021",
+    "barcode": "9781506711980",
+    "categ_id": 2
+  },
+  {
+    "name": "Fullmetal Alchemist Vol.1",
+    "type": "product",
+    "list_price": 160.0,
+    "default_code": "CRU-0022",
+    "barcode": "9781591169208",
+    "categ_id": 2
+  },
+  {
+    "name": "Haikyuu Vol.1",
+    "type": "product",
+    "list_price": 155.0,
+    "default_code": "CRU-0023",
+    "barcode": "9781421587661",
+    "categ_id": 2
+  },
+  {
+    "name": "Black Clover Vol.1",
+    "type": "product",
+    "list_price": 150.0,
+    "default_code": "CRU-0024",
+    "barcode": "9781421587180",
+    "categ_id": 2
+  },
+  {
+    "name": "Solo Leveling Vol.1",
+    "type": "product",
+    "list_price": 190.0,
+    "default_code": "CRU-0025",
+    "barcode": "9781975319272",
+    "categ_id": 2
+  },
+  {
+    "name": "Fire Force Vol.1",
+    "type": "product",
+    "list_price": 175.0,
+    "default_code": "CRU-0026",
+    "barcode": "9781591165569",
+    "categ_id": 2
+  }
+]
