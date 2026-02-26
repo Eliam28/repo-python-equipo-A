@@ -39,6 +39,18 @@ def crear_productos(models, uid, productos):
     for producto in productos:
         try:
             product_data = construir_producto(producto)
+            
+            existing_product = models.execute_kw(
+                ODOO_DB,uid,ODOO_PASSWORD,
+                "product.template",
+                "search",
+                [[["default_code", "=",product_data["default_code"]]]]
+            )
+
+            if existing_product:
+                print(f"Producto existente: {producto["name"]}")
+                continue
+            
             models.execute_kw(
                 ODOO_DB, uid, ODOO_PASSWORD,
                 "product.template",
