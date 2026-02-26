@@ -1,6 +1,8 @@
 import xmlrpc.client
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 ODOO_URL = os.getenv("ODOO_URL")
 ODOO_DB = os.getenv("ODOO_DB")
@@ -48,7 +50,7 @@ def crear_productos(models, uid, productos):
             )
 
             if existing_product:
-                print(f"Producto existente: {producto["name"]}")
+                print(f"Producto existente: {product_data['name']}")
                 continue
             
             models.execute_kw(
@@ -62,7 +64,7 @@ def crear_productos(models, uid, productos):
             print(f"Error al crear {producto['name']}")
 
 
-PRODUCTS_FILE = "productos.json"
+PRODUCTS_FILE = "productos_2.json"
 
 uid = autenticar(ODOO_URL, ODOO_DB, ODOO_USER, ODOO_PASSWORD)
 print(f"Autenticado como UID: {uid}")
