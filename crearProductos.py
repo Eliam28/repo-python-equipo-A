@@ -10,7 +10,7 @@ ODOO_USER = os.getenv("ODOO_USER")
 ODOO_PASSWORD = os.getenv("ODOO_PASSWORD")
 
 def autenticar(url, db, username, password):
-    common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
+    common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common", allow_none=True)
     uid = common.authenticate(db, username, password, {})
     if not uid:
         raise Exception("No se pudo autenticar.")
@@ -18,7 +18,7 @@ def autenticar(url, db, username, password):
 
 
 def obtener_modelos(url):
-    return xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object")
+    return xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object", allow_none=True)
 
 
 def construir_producto(producto):
@@ -53,15 +53,60 @@ def crear_productos(models, uid, productos):
                 print(f"Producto existente: {product_data['name']}")
                 continue
             
-            models.execute_kw(
+            product_id = models.execute_kw(
                 ODOO_DB, uid, ODOO_PASSWORD,
                 "product.template",
                 "create",
                 [product_data]
             )
             print(f"Producto creado: {producto['name']}")
+
+            product_variant = models.execute_kw(
+                ODOO_DB,uid,ODOO_PASSWORD,
+                "product.product",
+                "search",
+                [[["product_tmpl_id", "=", product_id]]]
+            )
+
+            if not product_variant:
+                print("No se encontro variante")
+                continue
+
+            variant_id = product_variant[0]
+
+            cantidad = producto.get("qty_available", 0)
+
+            if cantidad >0 and product_data["type"] == "product":
+                location_id = 16
+
+                quant_id = models.execute_kw(
+                    ODOO_DB,uid,ODOO_PASSWORD,
+                    "stock.quant",
+                    "create",
+                    [{
+                        "product_id": variant_id,
+                        "location_id": location_id,
+                        "inventory_quantity": cantidad
+                    }]
+                )
+
+                print(f"Stock agregado: {cantidad}")
+
+                try:
+                    models.execute_kw(
+                    ODOO_DB,uid,ODOO_PASSWORD,
+                    "stock.quant",
+                    "action_apply_inventory",
+                    [[quant_id]]
+                    )
+                except Exception as stock_error:
+                    if "cannot marshal None" in str(stock_error):
+                        pass
+                    else:
+                        raise
+
         except Exception as e:
-            print(f"Error al crear {producto['name']}")
+            print(f"Error al crear {producto['name']}: {e}")
 
 
 PRODUCTS_FILE = "productos_2.json"
