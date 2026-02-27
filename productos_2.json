@@ -1,47 +1,20 @@
 [
   {
-    "name": "Elden Ring: Shadow of the Erdtree Edition",
+    "name": "Balatro",
     "type": "product",
-    "list_price": 79.99,
-    "default_code": "GAM-0001",
-    "barcode": "8400000000100",
+    "list_price": 14.5,
+    "default_code": "GAM-0009",
+    "barcode": "8400000000108",
     "categ_id": 2,
-    "qty_available": 0
+    "qty_available": 340
   },
   {
-    "name": "Tekken 8",
+    "name": "Rise of the Ronin",
     "type": "product",
-    "list_price": 64.95,
-    "default_code": "GAM-0002",
-    "barcode": "8400000000101",
+    "list_price": 74.99,
+    "default_code": "GAM-0010",
+    "barcode": "8400000000109",
     "categ_id": 2,
-    "qty_available": 28
-  },
-  {
-    "name": "Persona 3 Reload",
-    "type": "product",
-    "list_price": 0.0,
-    "default_code": "GAM-0003",
-    "barcode": "8400000000102",
-    "categ_id": 2,
-    "qty_available": 12
-  },
-  {
-    "name": "Helldivers 2",
-    "type": "product",
-    "list_price": 39.99,
-    "default_code": "GAM-0004",
-    "barcode": "8400000000103",
-    "categ_id": 2,
-    "qty_available": 235
-  },
-  {
-    "name": "Dragon's Dogma 2",
-    "type": "product",
-    "list_price": 72.5,
-    "default_code": "GAM-0005",
-    "barcode": "8400000000104",
-    "categ_id": 2,
-    "qty_available": 4
+    "qty_available": 9
   }
 ]

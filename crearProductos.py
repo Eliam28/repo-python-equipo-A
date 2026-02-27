@@ -53,7 +53,7 @@ def crear_productos(models, uid, productos):
                 print(f"Producto existente: {product_data['name']}")
                 continue
             
-            product_id = models.execute_kw(
+            template_id = models.execute_kw(
                 ODOO_DB, uid, ODOO_PASSWORD,
                 "product.template",
                 "create",
@@ -65,7 +65,8 @@ def crear_productos(models, uid, productos):
                 ODOO_DB,uid,ODOO_PASSWORD,
                 "product.product",
                 "search",
-                [[["product_tmpl_id", "=", product_id]]]
+                [[["product_tmpl_id", "=", template_id]]],
+                {"limit":1}
             )
 
             if not product_variant:
@@ -74,36 +75,28 @@ def crear_productos(models, uid, productos):
 
             variant_id = product_variant[0]
 
-            cantidad = producto.get("qty_available", 0)
+            cantidad = float(producto.get("qty_available",0))
 
-            if cantidad >0 and product_data["type"] == "product":
-                location_id = 22
-
-                quant_id = models.execute_kw(
+            if cantidad > 0 and product_data.get("type") == "product":
+                wiz_id = models.execute_kw(
                     ODOO_DB,uid,ODOO_PASSWORD,
-                    "stock.quant",
+                    "stock.change.product.qty",
                     "create",
                     [{
                         "product_id": variant_id,
-                        "location_id": location_id,
-                        "inventory_quantity": cantidad
+                        "product_tmpl_id": template_id,
+                        "new_quantity": cantidad
                     }]
+                )
+
+                models.execute_kw(
+                    ODOO_DB,uid,ODOO_PASSWORD,
+                    "stock.change.product.qty", "change_product_qty",
+                    [[wiz_id]]
                 )
 
                 print(f"Stock agregado: {cantidad}")
 
-                try:
-                    models.execute_kw(
-                    ODOO_DB,uid,ODOO_PASSWORD,
-                    "stock.quant",
-                    "action_apply_inventory",
-                    [[quant_id]]
-                    )
-                except Exception as stock_error:
-                    if "cannot marshal None" in str(stock_error):
-                        pass
-                    else:
-                        raise
 
         except Exception as e:
             print(f"Error al crear {producto['name']}: {e}")
