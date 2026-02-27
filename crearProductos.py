@@ -77,7 +77,7 @@ def crear_productos(models, uid, productos):
             cantidad = producto.get("qty_available", 0)
 
             if cantidad >0 and product_data["type"] == "product":
-                location_id = 16
+                location_id = 22
 
                 quant_id = models.execute_kw(
                     ODOO_DB,uid,ODOO_PASSWORD,
@@ -117,5 +117,3 @@ print(f"Autenticado como UID: {uid}")
 models = obtener_modelos(ODOO_URL)
 productos = cargar_productos(PRODUCTS_FILE)
 crear_productos(models, uid, productos)
-
-print("Todos los productos creados")
