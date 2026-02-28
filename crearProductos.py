@@ -53,50 +53,13 @@ def crear_productos(models, uid, productos):
                 print(f"Producto existente: {product_data['name']}")
                 continue
             
-            template_id = models.execute_kw(
+            models.execute_kw(
                 ODOO_DB, uid, ODOO_PASSWORD,
                 "product.template",
                 "create",
                 [product_data]
             )
             print(f"Producto creado: {producto['name']}")
-
-            product_variant = models.execute_kw(
-                ODOO_DB,uid,ODOO_PASSWORD,
-                "product.product",
-                "search",
-                [[["product_tmpl_id", "=", template_id]]],
-                {"limit":1}
-            )
-
-            if not product_variant:
-                print("No se encontro variante")
-                continue
-
-            variant_id = product_variant[0]
-
-            cantidad = float(producto.get("qty_available",0))
-
-            if cantidad > 0 and product_data.get("type") == "product":
-                wiz_id = models.execute_kw(
-                    ODOO_DB,uid,ODOO_PASSWORD,
-                    "stock.change.product.qty",
-                    "create",
-                    [{
-                        "product_id": variant_id,
-                        "product_tmpl_id": template_id,
-                        "new_quantity": cantidad
-                    }]
-                )
-
-                models.execute_kw(
-                    ODOO_DB,uid,ODOO_PASSWORD,
-                    "stock.change.product.qty", "change_product_qty",
-                    [[wiz_id]]
-                )
-
-                print(f"Stock agregado: {cantidad}")
-
 
         except Exception as e:
             print(f"Error al crear {producto['name']}: {e}")
