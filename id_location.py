@@ -28,6 +28,14 @@ locations = models.execute_kw(
     {"fields": ["id", "complete_name", "usage"]}
 )
 
+companies = models.execute_kw(
+    ODOO_DB, uid, ODOO_PASSWORD,
+    "res.company", "search_read",
+    [[]], {"fields": ["id", "name"]}
+)
+for c in companies:
+    print(c)
+
 print("Ubicaciones internas encontradas:")
 for loc in locations:
   print(loc)

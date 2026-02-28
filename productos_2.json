@@ -1,20 +1,11 @@
 [
   {
-    "name": "Balatro",
+    "name": "Street Fighter 6",
     "type": "product",
-    "list_price": 14.5,
-    "default_code": "GAM-0009",
-    "barcode": "8400000000108",
+    "list_price": 39.9,
+    "default_code": "GAM-0019",
+    "barcode": "8400000000218",
     "categ_id": 2,
-    "qty_available": 340
-  },
-  {
-    "name": "Rise of the Ronin",
-    "type": "product",
-    "list_price": 74.99,
-    "default_code": "GAM-0010",
-    "barcode": "8400000000109",
-    "categ_id": 2,
-    "qty_available": 9
+    "qty_available": 25
   }
 ]
